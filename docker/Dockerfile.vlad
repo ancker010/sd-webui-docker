@@ -56,6 +56,9 @@ RUN git clone --depth=1 "${BLIP_REPO}" "BLIP" \
   && git fetch --depth=1 origin "${BLIP_REF}" \
   && git reset --hard "${BLIP_REF}" \
   && git submodule update --init --recursive
+  
+# Debug
+RUN ls /git
 
 FROM base AS vlad
 
