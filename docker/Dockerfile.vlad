@@ -56,9 +56,6 @@ RUN git clone --depth=1 "${BLIP_REPO}" "BLIP" \
   && git fetch --depth=1 origin "${BLIP_REF}" \
   && git reset --hard "${BLIP_REF}" \
   && git submodule update --init --recursive
-  
-# Debug
-RUN ls /git
 
 FROM base AS vlad
 
@@ -107,9 +104,6 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 # Grab repositories from download stage
 COPY --from=download /git/ ${ROOT_DIR}/repositories/
-# Debug
-RUN ls ${ROOT_DIR}/
-RUN ls ${ROOT_DIR}/repositories/
 
 # Install requirements for CodeFormer
 # Debug Codeformer
