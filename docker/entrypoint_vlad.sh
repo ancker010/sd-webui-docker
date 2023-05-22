@@ -140,4 +140,8 @@ if [ -f "${config_dir}/startup.sh" ]; then
     popd > /dev/null
 fi
 
+# Upgrade pip so everything installs correctly
+pip install --upgrade pip
+
+
 exec "$@"
