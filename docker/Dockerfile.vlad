@@ -104,8 +104,13 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 # Grab repositories from download stage
 COPY --from=download /git/* ${ROOT_DIR}/repositories/
+# Debug
+RUN ls ${ROOT_DIR}/repositories/
 
 # Install requirements for CodeFormer
+# Debug Codeformer
+RUN ls ${ROOT_DIR}/repositories/CodeFormer/
+RUN cat ${ROOT_DIR}/repositories/CodeFormer/requirements.txt
 RUN --mount=type=cache,target=/root/.cache/pip \
   pip install -r ${ROOT_DIR}/repositories/CodeFormer/requirements.txt
 
